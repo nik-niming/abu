@@ -216,11 +216,11 @@ def _do_plot_candle_html(date, p_open, high, low, close, symbol, save):
     p.xaxis.major_label_orientation = pi / 4
     p.grid.grid_line_alpha = 0.3
 
-    p.segment(date.to_datetime(), high, date.to_datetime(), low, color="black")
+    p.segment(date.to_pydatetime(), high, date.to_pydatetime(), low, color="black")
     # noinspection PyUnresolvedReferences
-    p.rect(date.to_datetime()[inc], mids[inc], w, spans[inc], fill_color=__colorup__, line_color=__colorup__)
+    p.rect(date.to_pydatetime()[inc], mids[inc], w, spans[inc], fill_color=__colorup__, line_color=__colorup__)
     # noinspection PyUnresolvedReferences
-    p.rect(date.to_datetime()[dec], mids[dec], w, spans[dec], fill_color=__colordown__, line_color=__colordown__)
+    p.rect(date.to_pydatetime()[dec], mids[dec], w, spans[dec], fill_color=__colordown__, line_color=__colordown__)
 
     bp.show(p)
     if save:
